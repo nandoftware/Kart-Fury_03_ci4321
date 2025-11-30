@@ -197,9 +197,7 @@ scene.add(carritoRosa._optra);
 scene.add(carroGenerico._optra);
 scene.add(carroGenerico2._optra);
 
-// const carLight = new THREE.PointLight(0xFFFFFF, 3, 30);
-// carLight.position.set(0, 3, 0);
-// carritoRosa._optra.add(carLight);
+
 
 
 
@@ -303,7 +301,7 @@ function initAudio() {
     audioLoader.load('scr/assets/musica.mp3', function(buffer) {
         audio.setBuffer(buffer);
         audio.setLoop(true);
-        audio.setVolume(0.1);
+        audio.setVolume(0);
         audio.play();
     });
     mainCamera.add(audioListener);

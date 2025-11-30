@@ -70,10 +70,11 @@ class Car{
             color: mainColor,
             //roughness: 0.4,
             metalness: 0.6
+            
         });
         this._body = new THREE.Mesh(this._bodyGeometry, this._bodyMaterial);
         this._body.position.y = 1.5;
-        // body.castShadow = true;
+        this._body.castShadow = true;
         this._carroceria.add(this._body);
         
 
@@ -91,7 +92,7 @@ class Car{
         });
         this._cabin = new THREE.Mesh(this._cabinGeometry, this._cabinMaterial);
         this._cabin.position.set(0, 2.3, 1.5);
-        // cabin.castShadow = true;
+        this._cabin.castShadow = true;
         this._carroceria.add(this._cabin);
         
 
@@ -124,18 +125,21 @@ class Car{
             this._wheel = new THREE.Mesh(this._wheelGeometry, this._wheelMaterial);
             // wheel.position.set(pos.x, pos.y, pos.z);
             // wheel.rotation.z = Math.PI / 2;
-            // wheel.castShadow = true;
+            this._wheel.castShadow = true;
 
             // cauchos.add(wheel);
 
             this._wheelRim = new THREE.Mesh(this._wheelRimGeometry, this._wheelRimMaterial);
             this._wheelRim.position.set(pos.x, pos.y, pos.z);
             this._wheelRim.rotation.z = Math.PI / 2;
-            // wheelRim.castShadow = true;
+            this._wheelRim.castShadow = true;
             this._ruedas.add(this._wheelRim);
             this._wheelRim.add(this._wheel)
         });
 
+        this._carLightInside = new THREE.PointLight(0xFFFFFF, 3, 30);
+        this._carLightInside.position.set(0, 3, 0);
+        this._optra.add(this._carLightInside);
 
         // luces delanteras
         this._lightGeometry = new THREE.BoxGeometry(0.4, 0.2, 0.2);
@@ -165,10 +169,12 @@ class Car{
         ]
 
         this._lightTPos.forEach(pos =>{
-            this._backLight = new THREE.Mesh(this._lightGeometry, this._light2Material);
-            this._backLight.position.set(pos.x, pos.y, pos.z);
-            this._optra.add(this._backLight)
+            this._backLightMesh = new THREE.Mesh(this._lightGeometry, this._light2Material);
+            this._backLightMesh.position.set(pos.x, pos.y, pos.z);
+            this._optra.add(this._backLightMesh)
         })
+
+        
 
 
         // puertas
@@ -192,8 +198,8 @@ class Car{
         this._doorsPos.forEach(pos =>{
             this._door = new THREE.Mesh(this._doorGeometry, this._doorMaterial);
             this._door.position.set(pos.x, pos.y, pos.z);
-            // door.castShadow = true;
-            // door.receiveShadow = true;
+            this._door.castShadow = true;
+            this._door.receiveShadow = true;
             this._carroceria.add(this._door);
         })
 
