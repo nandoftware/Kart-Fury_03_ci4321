@@ -211,9 +211,13 @@ carritoRosa._optra.add(carritoCamera);
 
 
 
-const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.35);
-directionalLight.position.set(-30,50,0);
-scene.add(directionalLight);
+// const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.35);
+// directionalLight.position.set(-30,50,0);
+// directionalLight.castShadow = true
+
+// const directionalLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+// scene.add(directionalLightShadowHelper)
+// scene.add(directionalLight);
 
 
 const axesHelper = new THREE.AxesHelper(5);

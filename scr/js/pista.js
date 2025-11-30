@@ -122,6 +122,7 @@ function crearSegmentoLargo(largo) {
     carretera.material.normalMap.rotation = Math.PI;
     carretera.material.normalMap.center.set(0.5, 0.5);
     carretera.material.normalMap.repeat.set(largo / 50, 1);
+    carretera.receiveShadow = true
 
     const rayas = new THREE.Group();
     const cantidad = Math.floor(largo / (largo_raya + espacio_raya));
@@ -137,6 +138,7 @@ function crearSegmentoLargo(largo) {
     }
 
     const segmento = new THREE.Group();
+    segmento.receiveShadow = true
     segmento.add(carretera);
     segmento.add(rayas);
     return segmento;

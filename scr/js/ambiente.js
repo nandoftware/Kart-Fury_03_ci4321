@@ -5,17 +5,22 @@ export function crearAmbiente(scene) {
     sol.position.set(50, 80, 50); 
     sol.castShadow = true;
 
-    sol.shadow.mapSize.width = 2048;
-    sol.shadow.mapSize.height = 2048;
-    sol.shadow.camera.near = 0.5;
-    sol.shadow.camera.far = 500;
-    sol.shadow.camera.left = -150;
-    sol.shadow.camera.right = 150;
-    sol.shadow.camera.top = 150;
-    sol.shadow.camera.bottom = -150;
+    // const miniHelper = new THREE.DirectionalLightHelper(sol)
 
+    // sol.shadow.mapSize.width = 2048;
+    // sol.shadow.mapSize.height = 2048;
+    // sol.shadow.camera.near = 0.5;
+    // sol.shadow.camera.far = 500;
+    // sol.shadow.camera.left = -150;
+    // sol.shadow.camera.right = 150;
+    // sol.shadow.camera.top = 150;
+    // sol.shadow.camera.bottom = -150;
+    
+    const solHelper = new THREE.CameraHelper(sol.shadow.camera)
+    // scene.add(miniHelper)
+    scene.add(solHelper)
     scene.add(sol);
-    // scene.add(new THREE.DirectionalLightHelper(sol, 5));
+    scene.add(new THREE.DirectionalLightHelper(sol, 5))
 
     const solVisual = new THREE.Mesh(
         new THREE.SphereGeometry(10, 32, 32),
@@ -37,6 +42,8 @@ export function animarSol(sol, solVisual, deltaTime) {
     sol.position.x = Math.sin(elapsedTime) * radius;
     sol.position.z = Math.cos(elapsedTime) * radius;
     sol.position.y = 60 + 20 * Math.sin(elapsedTime * 0.07);
+
+    sol.lookAt(0,0,0)
 
     solVisual.position.x = Math.sin(elapsedTime) * radius;
     solVisual.position.z = Math.cos(elapsedTime) * radius;

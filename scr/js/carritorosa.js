@@ -57,11 +57,14 @@ class Car{
         // grafo de construccion de objetos (padres, hijos,  eso)
         this._optra = new THREE.Group();
             this._carroceria = new THREE.Group()
+            this._carroceria.castShadow = true
             this._ruedas = new THREE.Group()
+            this._ruedas.castShadow = true
         
         this._optra.add(this._carroceria)
         this._optra.add(this._ruedas)
 
+        this._optra.castShadow = true
 
         // creamos el cubo central, la carroceria
         this._bodyGeometry = new THREE.BoxGeometry(3.5, 1.2, 6);
