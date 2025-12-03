@@ -34,7 +34,9 @@ const waterMaterial = new THREE.MeshStandardMaterial({
     opacity: 0.8,
     roughness: 0.1,
     metalness: 0.5
+    
 });
+
 
 const waterGeometry = new THREE.PlaneGeometry(900, 900);
 const waterPlane = new THREE.Mesh(waterGeometry, waterMaterial);
@@ -44,10 +46,9 @@ waterPlane.position.y = -0.2;
 const floorMaterial = new THREE.MeshStandardMaterial({
     map: causticTexture,
     normalMap: causticNormalMap,
-    emissive: 0x446688,
-    emissiveIntensity: 0.5,
+
     roughness: 0.9,
-    metalness: 0.1
+
 });
 
 class Segmento{
@@ -248,9 +249,11 @@ segmento_derecho.position.set(mitad_ancho, 0, 0);
 const bordes_amarillos = crearBordesConGrosor(0.8);
 
 const pista = new THREE.Group();
+pista.receiveShadow = true
 pista.add(segmento_inferior, segmento_superior, segmento_izquierdo, segmento_derecho, bordes_amarillos);
 
 const escenaCompleta = new THREE.Group();
+escenaCompleta.receiveShadow = true
 escenaCompleta.add(waterPlane);
 escenaCompleta.add(pista);
 
