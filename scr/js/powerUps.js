@@ -24,6 +24,14 @@ class PowerUp {
 
         this._active = true;
         this._count = 0;
+
+        this._spotLight = new THREE.SpotLight( 0x0000ff );
+        this._spotLight.intensity = 8
+        this._spotLight.target =this._caja
+        
+        this._spotLight.position.set(x,y+14,z)
+        this._SPhelp = new THREE.SpotLightHelper(this._spotLight)
+        
     }
 
     updateCollider() {
@@ -72,13 +80,20 @@ export const PW6 = new PowerUp(-30, 3, 85);
 
 export function AddAllBoxes(scena){
     scena.add(PW1._caja);
+    scena.add(PW1._spotLight)
+    scena.add(PW1._SPhelp)
     scena.add(PW2._caja);
+    scena.add(PW2._spotLight)
     scena.add(PW3._caja);
+    scena.add(PW3._spotLight)
 
      // nuevas cajitas
     scena.add(PW4._caja);
+    scena.add(PW4._spotLight)
     scena.add(PW5._caja);
+    scena.add(PW5._spotLight)
     scena.add(PW6._caja);
+    scena.add(PW6._spotLight)
 }
 
 

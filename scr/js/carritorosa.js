@@ -161,6 +161,9 @@ class Car{
             this._optra.add(this._frontLight)
         })
 
+        
+        
+
 
         // luces traceras
         this._light2Material = new THREE.MeshBasicMaterial({ 
