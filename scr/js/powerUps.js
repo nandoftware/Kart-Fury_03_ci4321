@@ -81,7 +81,6 @@ export const PW6 = new PowerUp(-30, 3, 85);
 export function AddAllBoxes(scena){
     scena.add(PW1._caja);
     scena.add(PW1._spotLight)
-    scena.add(PW1._SPhelp)
     scena.add(PW2._caja);
     scena.add(PW2._spotLight)
     scena.add(PW3._caja);

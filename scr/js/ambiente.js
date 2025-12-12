@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 export function crearAmbiente(scene) {
-    const sol = new THREE.DirectionalLight(0xFF7777, 2.0);
+    const sol = new THREE.DirectionalLight(0xFF7777, 0.7);
     sol.position.set(50, 80, 50); 
     sol.castShadow = true;
     
@@ -20,7 +20,7 @@ export function crearAmbiente(scene) {
     // scene.add(miniHelper)
     
     scene.add(sol);
-    scene.add(new THREE.DirectionalLightHelper(sol, 5))
+    // scene.add(new THREE.DirectionalLightHelper(sol, 5))
 
     const solVisual = new THREE.Mesh(
         new THREE.SphereGeometry(10, 32, 32),

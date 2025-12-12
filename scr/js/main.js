@@ -300,7 +300,7 @@ function initAudio() {
     audioLoader.load('scr/assets/musica.mp3', function(buffer) {
         audio.setBuffer(buffer);
         audio.setLoop(true);
-        audio.setVolume(0);
+        audio.setVolume(0.12);
         audio.play();
     });
     mainCamera.add(audioListener);

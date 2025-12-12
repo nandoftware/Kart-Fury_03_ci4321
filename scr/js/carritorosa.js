@@ -155,13 +155,29 @@ class Car{
             { x: 1, y: 1.5, z: -3 },
         ]
 
+        // this._spotLightI = new THREE.SpotLight( 0x0000ff );
+        // this._spotLightD = new THREE.SpotLight( 0x0000ff );
+
+        // this._spotLightI.position.set(this._lightPos[0].x, this._lightPos[0].y, this._lightPos[0].z)
+        // this._spotLightD.position.set(this._lightPos[0].x, this._lightPos[0].y, this._lightPos[0].z)
+
         this._lightPos.forEach(pos =>{
             this._frontLight = new THREE.Mesh(this._lightGeometry, this._lightMaterial);
             this._frontLight.position.set(pos.x, pos.y, pos.z);
+
+            // this._spotLightI = new THREE.DirectionalLight( 0xff0000 );
+            
+            // this._spotLightI.position.set(pos.x, pos.y, pos.z)
+            // this._spotLightI.target = this._frontLight
+            // this._spotLightIHelper = new THREE.DirectionalLightHelper(this._spotLightI)
+            // this._frontLight.add(this._spotLightI)
+
             this._optra.add(this._frontLight)
         })
 
         
+
+
         
 
 
@@ -200,7 +216,7 @@ class Car{
             { x: -(3.5 / 2 + 0.02 / 2), y: 1.5, z: 0 }, // puerta izq
             { x: 3.5 / 2 + 0.02 / 2, y: 1.5, z: 0 }, // puerta der
         ]
-
+        
         this._doorsPos.forEach(pos =>{
             this._door = new THREE.Mesh(this._doorGeometry, this._doorMaterial);
             this._door.position.set(pos.x, pos.y, pos.z);
@@ -209,7 +225,8 @@ class Car{
             this._carroceria.add(this._door);
         })
 
-
+        
+                
 
         // colliders
         this._bodyCollider = new THREE.Box3(new THREE.Vector3(), new THREE.Vector3());
